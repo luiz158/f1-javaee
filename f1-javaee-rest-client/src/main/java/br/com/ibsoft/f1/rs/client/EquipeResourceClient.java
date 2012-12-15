@@ -1,0 +1,29 @@
+/**
+ * Copyright (c) 2011-2012, IBSOFT.
+ * All rights reserved.
+ */
+package br.com.ibsoft.f1.rs.client;
+
+import java.io.Serializable;
+import java.util.List;
+
+import br.com.ibsoft.f1.entity.Equipe;
+
+/**
+ * @author lourenco
+ * 
+ * @since v1.0.0
+ */
+public interface EquipeResourceClient extends Serializable {
+
+    List<Equipe> listarEquipes(Integer first, Integer max) throws Exception;
+
+    Equipe buscarEquipePorId(Long id);
+
+    Equipe salvarEquipe(Equipe equipe);
+
+    Equipe atualizarEquipe(Equipe equipe);
+
+    void deletarEquipe(Long id);
+
+}
