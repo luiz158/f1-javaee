@@ -46,6 +46,12 @@ public class EquipeServiceBean implements EquipeService {
      */
     @Override
     public Equipe salvarEquipe(Equipe equipe) throws F1Exception {
+        if (equipe == null) {
+            throw new F1Exception("equipe.nulo");
+        }
+        if (equipe.getNome() == null) {
+            throw new F1Exception("equipe.nome.nulo");
+        }
         return equipeRepository.persist(equipe);
     }
 
@@ -90,6 +96,17 @@ public class EquipeServiceBean implements EquipeService {
             firstResult = 0;
         }
         return equipeRepository.find(null, Equipe.class, firstResult, maxResults);
+    }
+
+    /*
+     * (non-Javadoc)
+     * 
+     * @see br.com.ibsoft.f1.service.EquipeService#deletarEquipe(java.lang.Long)
+     */
+    @Override
+    public void deletarEquipe(Long id) throws F1Exception {
+        Equipe equipe = buscarEquipe(id);
+        equipeRepository.remove(equipe);
     }
 
 }

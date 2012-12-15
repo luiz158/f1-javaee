@@ -10,40 +10,9 @@
 
 	<groupId>org.ibsoft</groupId>
 	<artifactId>f1-javaee-rest-client</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
 	<name>f1-javaee-rest-client</name>
-	<properties>
-		<project.build.sourceEncoding>ISO-8859-1</project.build.sourceEncoding>
-		<maven.build.timestamp.format>yyyyMMdd'T'HHmmss</maven.build.timestamp.format>
-		<jboss.home>${env.JBOSS_HOME}</jboss.home>
-
-		<!-- jboss javae -->
-		<jboss.bom.version>1.0.0.Final</jboss.bom.version>
-		<resteasy-bom.version>2.3.4.Final</resteasy-bom.version>
-
-	</properties>
-
-	<dependencyManagement>
-		<dependencies>
-			<dependency>
-				<groupId>org.jboss.bom</groupId>
-				<artifactId>jboss-javaee-6.0-with-tools</artifactId>
-				<version>${jboss.bom.version}</version>
-				<type>pom</type>
-				<scope>import</scope>
-			</dependency>
-			<dependency>
-				<groupId>org.jboss.resteasy</groupId>
-				<artifactId>resteasy-bom</artifactId>
-				<version>${resteasy-bom.version}</version>
-				<type>pom</type>
-				<scope>import</scope>
-			</dependency>
-		</dependencies>
-	</dependencyManagement>
 
 	<dependencies>
-
 		<dependency>
 			<groupId>org.jboss.resteasy</groupId>
 			<artifactId>resteasy-jaxrs</artifactId>
@@ -69,8 +38,16 @@
 			<groupId>br.com.ibsoft</groupId>
 			<artifactId>f1-javaee-dao</artifactId>
 			<version>${project.version}</version>
-			<scope>test</scope>
 		</dependency>
+
+		<dependency>
+			<groupId>br.com.ibsoft</groupId>
+			<artifactId>f1-javaee-domain</artifactId>
+			<version>${project.version}</version>
+		</dependency>
+
+
+		<!-- Test -->
 
 		<dependency>
 			<groupId>br.com.ibsoft</groupId>
@@ -79,12 +56,6 @@
 			<scope>test</scope>
 		</dependency>
 
-		<dependency>
-			<groupId>br.com.ibsoft</groupId>
-			<artifactId>f1-javaee-domain</artifactId>
-			<version>${project.version}</version>
-			<scope>test</scope>
-		</dependency>
 
 		<dependency>
 			<groupId>br.com.ibsoft</groupId>
@@ -93,7 +64,6 @@
 			<type>jar</type>
 			<scope>test</scope>
 		</dependency>
-
 
 		<dependency>
 			<groupId>org.jboss.spec.javax.transaction</groupId>
@@ -117,13 +87,6 @@
 			<groupId>org.jboss.as</groupId>
 			<artifactId>jboss-as-arquillian-common</artifactId>
 			<version>7.1.1.Final</version>
-			<scope>test</scope>
-		</dependency>
-
-		<dependency>
-			<groupId>br.com.ibsoft</groupId>
-			<artifactId>ibsoft-suporte-test</artifactId>
-			<version>${project.version}</version>
 			<scope>test</scope>
 		</dependency>
 
@@ -164,7 +127,10 @@
 							<goal>copy-dependencies</goal>
 						</goals>
 						<configuration>
-							<includeScope>test</includeScope>
+							<includeArtifactIds>ibsoft-suporte-dao,
+								ibsoft-suporte-domain,ibsoft-suporte-commons,
+								commons-io,commons-lang3,
+								f1-javaee-dao,f1-javaee-dao-hibernate,f1-javaee-domain,f1-javaee-ws</includeArtifactIds>
 							<outputDirectory>${project.build.directory}/test-lib</outputDirectory>
 						</configuration>
 					</execution>
@@ -176,7 +142,7 @@
 						</goals>
 						<configuration>
 							<excludeArtifactIds>
-								httpclient,httpcore,jdk-tools,hibernate-jpa-2.0-api
+								httpclient,httpcore,jdk-tools,hibernate-jpa-2.0-api,ibsoft-suporte-dao
 							</excludeArtifactIds>
 							<includeScope>compile</includeScope>
 							<outputDirectory>${project.build.directory}/lib-mobile-android</outputDirectory>

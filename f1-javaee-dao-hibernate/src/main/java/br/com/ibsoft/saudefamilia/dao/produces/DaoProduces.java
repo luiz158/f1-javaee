@@ -1,14 +1,20 @@
 package br.com.ibsoft.saudefamilia.dao.produces;
 
+import javax.enterprise.context.ApplicationScoped;
+import javax.enterprise.context.RequestScoped;
 import javax.enterprise.inject.Produces;
 import javax.persistence.EntityManager;
-import javax.persistence.PersistenceContext;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.PersistenceUnit;
 
 public class DaoProduces {
+    @PersistenceUnit(unitName = "f1")
+    @ApplicationScoped
+    private EntityManagerFactory entityManagerFactory;
 
-    @SuppressWarnings("unused")
-    @PersistenceContext(unitName = "f1-javaee")
     @Produces
-    private EntityManager entityManager;
-
+    @RequestScoped
+    public EntityManager getEntityManager() {
+        return entityManagerFactory.createEntityManager();
+    }
 }

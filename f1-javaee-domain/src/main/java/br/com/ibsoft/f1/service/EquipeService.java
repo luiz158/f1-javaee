@@ -19,6 +19,13 @@ public interface EquipeService extends Serializable {
     Equipe atualizarEquipe(Equipe equipe) throws F1Exception;
 
     /**
+     * 
+     * @param id
+     * @throws F1Exception
+     */
+    void deletarEquipe(Long id) throws F1Exception;
+
+    /**
      * @param id
      * @return
      */

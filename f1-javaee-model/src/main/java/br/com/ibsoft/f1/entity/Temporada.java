@@ -23,7 +23,7 @@ import br.com.ibsoft.entity.Entidade;
  * @since v1.0.0
  */
 @Entity
-@Table(schema = "f1")
+@Table(schema = "f1", name = "temporada")
 @SequenceGenerator(schema = "f1", name = "temporada_seq", sequenceName = "temporada_seq")
 public class Temporada extends Entidade {
 

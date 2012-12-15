@@ -25,7 +25,7 @@ import br.com.ibsoft.entity.Entidade;
  * @since v1.0.0
  */
 @Entity
-@Table(schema = "f1")
+@Table(schema = "f1", name = "piloto")
 @SequenceGenerator(schema = "f1", name = "piloto_seq", sequenceName = "piloto_seq")
 public class Piloto extends Entidade {
 

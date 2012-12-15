@@ -21,9 +21,9 @@
 			<property name="jbossHome">${user.home}/Dev/jboss-as-7-test</property>
 		</configuration>
 	</container>
-	
+
 	<extension qualifier="persistence">
-		<property name="defaultDataSource">java:jboss/datasources/saude-familia-wsTestDS</property>
+		<property name="defaultDataSource">java:jboss/datasources/F1DS</property>
 		<property name="userTransactionJndi">java:jboss/UserTransaction</property>
 	</extension>
 
@@ -31,6 +31,6 @@
 		<property name="defaultDataSetFormat">JSON</property>
 		<property name="qualifiedTableNames">true</property>
 	</extension>
-	
+
 
 </arquillian>
