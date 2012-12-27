@@ -43,7 +43,7 @@ public class EquipeResourceClientTest implements Serializable {
 
     @Test
     public void deve_listar_equipes() throws Exception {
-        resourceClient.listarEquipes(0, 1);
+        resourceClient.listar(0, 1);
         Assert.assertTrue(true);
     }
 

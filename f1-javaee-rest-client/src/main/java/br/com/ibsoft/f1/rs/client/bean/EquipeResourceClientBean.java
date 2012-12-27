@@ -37,7 +37,7 @@ public class EquipeResourceClientBean extends F1HttpResourceClient implements Eq
      * .Integer , java.lang.Integer)
      */
     @Override
-    public List<Equipe> listarEquipes(Integer first, Integer max) throws Exception {
+    public List<Equipe> listar(Integer first, Integer max) throws Exception {
         ClientRequest request = createRequest("/anuncios");
         ClientResponse<List<Equipe>> response = request.get(new GenericType<List<Equipe>>() {
         });
@@ -57,7 +57,7 @@ public class EquipeResourceClientBean extends F1HttpResourceClient implements Eq
      * .lang .Long)
      */
     @Override
-    public Equipe buscarEquipePorId(Long id) {
+    public Equipe buscarEquipePor(Long id) {
         // TODO Auto-generated method stub
         return null;
     }
@@ -70,7 +70,7 @@ public class EquipeResourceClientBean extends F1HttpResourceClient implements Eq
      * . f1.entity.Equipe)
      */
     @Override
-    public Equipe salvarEquipe(Equipe equipe) {
+    public Equipe salvar(Equipe equipe) {
         // TODO Auto-generated method stub
         return null;
     }
@@ -83,7 +83,7 @@ public class EquipeResourceClientBean extends F1HttpResourceClient implements Eq
      * .ibsoft .f1.entity.Equipe)
      */
     @Override
-    public Equipe atualizarEquipe(Equipe equipe) {
+    public Equipe atualizar(Equipe equipe) {
         // TODO Auto-generated method stub
         return null;
     }
@@ -96,7 +96,7 @@ public class EquipeResourceClientBean extends F1HttpResourceClient implements Eq
      * .Long)
      */
     @Override
-    public void deletarEquipe(Long id) {
+    public void deletar(Long id) {
         // TODO Auto-generated method stub
 
     }

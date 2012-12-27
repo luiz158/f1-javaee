@@ -16,7 +16,7 @@ import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
-import br.com.ibsoft.entity.Entidade;
+import br.com.ibsoft.entity.BaseEntity;
 
 /**
  * 
@@ -27,7 +27,7 @@ import br.com.ibsoft.entity.Entidade;
 @Entity
 @Table(schema = "f1", name = "piloto")
 @SequenceGenerator(schema = "f1", name = "piloto_seq", sequenceName = "piloto_seq")
-public class Piloto extends Entidade {
+public class Piloto extends BaseEntity {
 
     private static final long serialVersionUID = 1L;
     @Id

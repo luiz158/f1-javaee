@@ -12,7 +12,7 @@
 	<artifactId>f1-javaee</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>pom</packaging>
-	<name>Sistema Integrado de Saude da Familia</name>
+	<name>F1</name>
 	<modules>
 		<module>f1-javaee-model</module>
 		<module>f1-javaee-dao</module>

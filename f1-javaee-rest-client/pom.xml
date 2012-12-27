@@ -10,7 +10,7 @@
 
 	<groupId>org.ibsoft</groupId>
 	<artifactId>f1-javaee-rest-client</artifactId>
-	<name>f1-javaee-rest-client</name>
+	<name>F1 REST Client</name>
 
 	<dependencies>
 		<dependency>

@@ -2,10 +2,10 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd"
 	version="2.0">
-	<persistence-unit name="saude-familia"
+	<persistence-unit name="f1"
 		transaction-type="JTA">
 		<provider>org.hibernate.ejb.HibernatePersistence</provider>
-		<jta-data-source>java:jboss/datasources/SaudeFamiliaDS</jta-data-source>
+		<jta-data-source>java:jboss/datasources/F1DS</jta-data-source>
 		<properties>
 <!-- 			<property name="hibernate.dialect" value="org.hibernate.dialect.H2Dialect" /> -->
 			<property name="hibernate.dialect" value="org.hibernate.dialect.PostgreSQLDialect" />

@@ -8,7 +8,7 @@ import javax.inject.Inject;
 
 import br.com.ibsoft.f1.entity.Piloto;
 import br.com.ibsoft.f1.repository.PilotoRepository;
-import br.com.ibsoft.repository.bean.RepositoryBean;
+import br.com.ibsoft.repository.bean.BaseRepositoryBean;
 import br.com.ibsoft.saudefamilia.cartao.dao.PilotoDao;
 
 /**
@@ -17,12 +17,12 @@ import br.com.ibsoft.saudefamilia.cartao.dao.PilotoDao;
  * 
  * @since v1.0.0
  */
-public class PilotoRepositoryBean extends RepositoryBean<Piloto> implements PilotoRepository {
+public class PilotoRepositoryBean extends BaseRepositoryBean<Piloto> implements PilotoRepository {
 
     private static final long serialVersionUID = 1L;
 
     /**
-     * @param daoPrincipal
+     * @param repositoryPrincipal
      */
     @Inject
     public PilotoRepositoryBean(PilotoDao PilotoDao) {

@@ -16,14 +16,14 @@ import br.com.ibsoft.f1.entity.Equipe;
  */
 public interface EquipeResourceClient extends Serializable {
 
-    List<Equipe> listarEquipes(Integer first, Integer max) throws Exception;
+    List<Equipe> listar(Integer first, Integer max) throws Exception;
 
-    Equipe buscarEquipePorId(Long id);
+    Equipe buscarEquipePor(Long id);
 
-    Equipe salvarEquipe(Equipe equipe);
+    Equipe salvar(Equipe equipe);
 
-    Equipe atualizarEquipe(Equipe equipe);
+    Equipe atualizar(Equipe equipe);
 
-    void deletarEquipe(Long id);
+    void deletar(Long id);
 
 }

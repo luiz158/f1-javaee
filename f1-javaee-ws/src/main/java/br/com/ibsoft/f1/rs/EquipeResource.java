@@ -14,7 +14,7 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.QueryParam;
 
 import br.com.ibsoft.f1.entity.Equipe;
-import br.com.ibsoft.f1.rs.exception.F1ExceptionRest;
+import br.com.ibsoft.f1.exception.F1Exception;
 
 @Path("/equipes")
 @Consumes({ "application/json", "application/xml" })
@@ -22,20 +22,20 @@ import br.com.ibsoft.f1.rs.exception.F1ExceptionRest;
 public interface EquipeResource extends Serializable {
 
     @GET
-    List<Equipe> listarEquipes(@QueryParam("f") Integer first, @QueryParam("m") Integer max) throws F1ExceptionRest;
+    List<Equipe> listar(@QueryParam("f") Integer first, @QueryParam("m") Integer max) throws F1Exception;
 
     @Path("/{id}")
     @GET
-    Equipe buscarEquipePorId(@PathParam("id") Long id) throws F1ExceptionRest;
+    Equipe buscarEquipePor(@PathParam("id") Long id) throws F1Exception;
 
     @POST
-    Equipe salvarEquipe(Equipe equipe) throws F1ExceptionRest;
+    Equipe salvar(Equipe equipe) throws F1Exception;
 
     @PUT
-    Equipe atualizarEquipe(Equipe equipe) throws F1ExceptionRest;
+    Equipe atualizar(Equipe equipe) throws F1Exception;
 
     @Path("/{id}")
     @DELETE
-    void deletarEquipe(@PathParam("id") Long id) throws F1ExceptionRest;
+    void deletar(@PathParam("id") Long id) throws F1Exception;
 
 }

@@ -7,12 +7,10 @@ package br.com.ibsoft.f1.rs.bean;
 import java.util.List;
 
 import javax.inject.Inject;
-import javax.ws.rs.core.Response.Status;
 
 import br.com.ibsoft.f1.entity.Equipe;
 import br.com.ibsoft.f1.exception.F1Exception;
 import br.com.ibsoft.f1.rs.EquipeResource;
-import br.com.ibsoft.f1.rs.exception.F1ExceptionRest;
 import br.com.ibsoft.f1.service.EquipeService;
 
 /**
@@ -35,11 +33,8 @@ public class EquipeResourceBean implements EquipeResource {
      * java.lang.Integer)
      */
     @Override
-    public List<Equipe> listarEquipes(Integer first, Integer max) throws F1ExceptionRest {
+    public List<Equipe> listar(Integer first, Integer max) throws F1Exception {
         List<Equipe> equipes = equipeService.listarEquipes(first, max);
-        if (equipes == null || equipes.size() == 0) {
-            throw new F1ExceptionRest(Status.NO_CONTENT.getStatusCode());
-        }
         return equipes;
     }
 
@@ -49,11 +44,8 @@ public class EquipeResourceBean implements EquipeResource {
      * @see br.com.ibsoft.f1.rs.EquipeResource#buscarEquipePorId(java.lang.Long)
      */
     @Override
-    public Equipe buscarEquipePorId(Long id) throws F1ExceptionRest {
+    public Equipe buscarEquipePor(Long id) throws F1Exception {
         Equipe equipe = equipeService.buscarEquipe(id);
-        if (equipe == null) {
-            throw new F1ExceptionRest(Status.NO_CONTENT.getStatusCode());
-        }
         return equipe;
     }
 
@@ -65,13 +57,8 @@ public class EquipeResourceBean implements EquipeResource {
      * .Equipe)
      */
     @Override
-    public Equipe salvarEquipe(Equipe equipe) throws F1ExceptionRest {
-        try {
-            equipe = equipeService.salvarEquipe(equipe);
-        } catch (F1Exception e) {
-            throw new F1ExceptionRest(e.getMessage());
-        }
-        return equipe;
+    public Equipe salvar(Equipe equipe) throws F1Exception {
+        return equipeService.salvarEquipe(equipe);
     }
 
     /*
@@ -82,13 +69,8 @@ public class EquipeResourceBean implements EquipeResource {
      * .Equipe)
      */
     @Override
-    public Equipe atualizarEquipe(Equipe equipe) throws F1ExceptionRest {
-        try {
-            equipe = equipeService.atualizarEquipe(equipe);
-        } catch (F1Exception e) {
-            throw new F1ExceptionRest(e.getMessage());
-        }
-        return equipe;
+    public Equipe atualizar(Equipe equipe) throws F1Exception {
+        return equipeService.atualizarEquipe(equipe);
     }
 
     /*
@@ -97,11 +79,7 @@ public class EquipeResourceBean implements EquipeResource {
      * @see br.com.ibsoft.f1.rs.EquipeResource#deletarEquipe(java.lang.Long)
      */
     @Override
-    public void deletarEquipe(Long id) throws F1ExceptionRest {
-        try {
-            equipeService.deletarEquipe(id);
-        } catch (F1Exception e) {
-            throw new F1ExceptionRest(e.getMessage());
-        }
+    public void deletar(Long id) throws F1Exception {
+        equipeService.deletarEquipe(id);
     }
 }

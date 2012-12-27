@@ -40,11 +40,11 @@ public class TeporadaRepositoryBean implements TemporadaRepository {
      * (non-Javadoc)
      * 
      * @see
-     * br.com.ibsoft.f1.repository.TemporadaRepository#persistPiloto(br.com.
-     * ibsoft.f1.entity.PilotoTemporada)
+     * br.com.ibsoft.f1.repository.TemporadaRepository#persist(br.com.ibsoft
+     * .f1.entity.PilotoTemporada)
      */
     @Override
-    public PilotoTemporada persistPiloto(PilotoTemporada piloto) {
+    public PilotoTemporada persist(PilotoTemporada piloto) {
         return pilotoTemporadaDao.persist(piloto);
     }
 
@@ -52,11 +52,11 @@ public class TeporadaRepositoryBean implements TemporadaRepository {
      * (non-Javadoc)
      * 
      * @see
-     * br.com.ibsoft.f1.repository.TemporadaRepository#updatePiloto(br.com.ibsoft
-     * .f1.entity.PilotoTemporada)
+     * br.com.ibsoft.f1.repository.TemporadaRepository#update(br.com.ibsoft.
+     * f1.entity.PilotoTemporada)
      */
     @Override
-    public PilotoTemporada updatePiloto(PilotoTemporada piloto) {
+    public PilotoTemporada update(PilotoTemporada piloto) {
         if (piloto == null || piloto.getId() == null) {
             return null;
         }
@@ -92,11 +92,11 @@ public class TeporadaRepositoryBean implements TemporadaRepository {
      * (non-Javadoc)
      * 
      * @see
-     * br.com.ibsoft.f1.repository.TemporadaRepository#persistEquipe(br.com.
-     * ibsoft.f1.entity.EquipeTemporada)
+     * br.com.ibsoft.f1.repository.TemporadaRepository#persist(br.com.ibsoft
+     * .f1.entity.EquipeTemporada)
      */
     @Override
-    public EquipeTemporada persistEquipe(EquipeTemporada equipe) {
+    public EquipeTemporada persist(EquipeTemporada equipe) {
         return equipeTemporadaDao.persist(equipe);
     }
 
@@ -104,11 +104,11 @@ public class TeporadaRepositoryBean implements TemporadaRepository {
      * (non-Javadoc)
      * 
      * @see
-     * br.com.ibsoft.f1.repository.TemporadaRepository#updateEquipe(br.com.ibsoft
-     * .f1.entity.EquipeTemporada)
+     * br.com.ibsoft.f1.repository.TemporadaRepository#update(br.com.ibsoft.
+     * f1.entity.EquipeTemporada)
      */
     @Override
-    public EquipeTemporada updateEquipe(EquipeTemporada equipe) {
+    public EquipeTemporada update(EquipeTemporada equipe) {
         if (equipe == null || equipe.getId() == null) {
             return null;
         }
@@ -144,11 +144,11 @@ public class TeporadaRepositoryBean implements TemporadaRepository {
      * (non-Javadoc)
      * 
      * @see
-     * br.com.ibsoft.f1.repository.TemporadaRepository#persistTemporada(br.com
-     * .ibsoft.f1.entity.Temporada)
+     * br.com.ibsoft.f1.repository.TemporadaRepository#persist(br.com.ibsoft
+     * .f1.entity.Temporada)
      */
     @Override
-    public Temporada persistTemporada(Temporada temporada) {
+    public Temporada persist(Temporada temporada) {
         return temporadaDao.persist(temporada);
     }
 
@@ -156,11 +156,11 @@ public class TeporadaRepositoryBean implements TemporadaRepository {
      * (non-Javadoc)
      * 
      * @see
-     * br.com.ibsoft.f1.repository.TemporadaRepository#updateTemnporada(br.com
-     * .ibsoft.f1.entity.Temporada)
+     * br.com.ibsoft.f1.repository.TemporadaRepository#update(br.com.ibsoft.
+     * f1.entity.Temporada)
      */
     @Override
-    public Temporada updateTemporada(Temporada temporada) {
+    public Temporada update(Temporada temporada) {
         if (temporada == null || temporada.getId() == null) {
             return null;
         }
@@ -189,6 +189,42 @@ public class TeporadaRepositoryBean implements TemporadaRepository {
     @Override
     public List<Temporada> findTemporada(Map<String, Object> queryParameters, Integer firstResult, Integer maxResults) {
         return temporadaDao.find(queryParameters, Temporada.class, firstResult, maxResults);
+    }
+
+    /*
+     * (non-Javadoc)
+     * 
+     * @see
+     * br.com.ibsoft.f1.repository.TemporadaRepository#remove(br.com.ibsoft.
+     * f1.entity.PilotoTemporada)
+     */
+    @Override
+    public void remove(PilotoTemporada piloto) {
+        pilotoTemporadaDao.remove(piloto);
+    }
+
+    /*
+     * (non-Javadoc)
+     * 
+     * @see
+     * br.com.ibsoft.f1.repository.TemporadaRepository#remove(br.com.ibsoft.
+     * f1.entity.EquipeTemporada)
+     */
+    @Override
+    public void remove(EquipeTemporada equipe) {
+        equipeTemporadaDao.remove(equipe);
+    }
+
+    /*
+     * (non-Javadoc)
+     * 
+     * @see
+     * br.com.ibsoft.f1.repository.TemporadaRepository#remove(br.com.ibsoft.
+     * f1.entity.Temporada)
+     */
+    @Override
+    public void remove(Temporada temporada) {
+        temporadaDao.remove(temporada);
     }
 
 }

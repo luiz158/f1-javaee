@@ -10,27 +10,33 @@ import br.com.ibsoft.f1.entity.Temporada;
 
 public interface TemporadaRepository extends Serializable {
 
-    PilotoTemporada persistPiloto(PilotoTemporada piloto);
+    PilotoTemporada persist(PilotoTemporada piloto);
 
-    PilotoTemporada updatePiloto(PilotoTemporada piloto);
+    PilotoTemporada update(PilotoTemporada piloto);
+
+    void remove(PilotoTemporada piloto);
 
     PilotoTemporada findPilotoById(Long id);
 
     List<PilotoTemporada> findPilotoTemporada(Map<String, Object> queryParameters, Integer firstResult,
             Integer maxResults);
 
-    EquipeTemporada persistEquipe(EquipeTemporada equipe);
+    EquipeTemporada persist(EquipeTemporada equipe);
 
-    EquipeTemporada updateEquipe(EquipeTemporada equipe);
+    EquipeTemporada update(EquipeTemporada equipe);
+
+    void remove(EquipeTemporada equipe);
 
     EquipeTemporada findEquipeById(Long id);
 
     List<EquipeTemporada> findEquipeTemporada(Map<String, Object> queryParameters, Integer firstResult,
             Integer maxResults);
 
-    Temporada persistTemporada(Temporada temporada);
+    Temporada persist(Temporada temporada);
 
-    Temporada updateTemporada(Temporada temporada);
+    Temporada update(Temporada temporada);
+
+    void remove(Temporada temporada);
 
     Temporada findTemporadaById(Long id);
 

@@ -49,8 +49,21 @@ public class F1ServiceBean implements F1Service {
      * (br.com.ibsoft.f1. entity.EquipeTemporada)
      */
     @Override
-    public EquipeTemporada salvarEquipeTemporada(EquipeTemporada equipe) throws F1Exception {
-        return temporadaRepository.persistEquipe(equipe);
+    public EquipeTemporada salvar(EquipeTemporada equipe) throws F1Exception {
+        validar(equipe);
+        return temporadaRepository.persist(equipe);
+    }
+
+    private void validar(EquipeTemporada equipe) throws F1Exception {
+        if (equipe == null) {
+            throw new F1Exception("error.equipe_temporada.nulo");
+        }
+        if (equipe.getEquipe() == null) {
+            throw new F1Exception("error.equipe_temporada.equipe.nulo");
+        }
+        if (equipe.getTemporada() == null) {
+            throw new F1Exception("error.equipe_temporada.temporada.nulo");
+        }
     }
 
     /*
@@ -61,11 +74,12 @@ public class F1ServiceBean implements F1Service {
      * (br.com.ibsoft. f1.entity.EquipeTemporada)
      */
     @Override
-    public EquipeTemporada atualizarEquipeTemporada(EquipeTemporada equipe) throws F1Exception {
-        if (equipe == null || equipe.getId() == null) {
+    public EquipeTemporada atualizar(EquipeTemporada equipe) throws F1Exception {
+        validar(equipe);
+        if (equipe.getId() == null) {
             return null;
         }
-        return temporadaRepository.updateEquipe(equipe);
+        return temporadaRepository.update(equipe);
     }
 
     /*
@@ -101,8 +115,21 @@ public class F1ServiceBean implements F1Service {
      * .f1.entity.PilotoTemporada)
      */
     @Override
-    public PilotoTemporada salvarPilotoTemporada(PilotoTemporada piloto) throws F1Exception {
-        return temporadaRepository.persistPiloto(piloto);
+    public PilotoTemporada salvar(PilotoTemporada piloto) throws F1Exception {
+        validar(piloto);
+        return temporadaRepository.persist(piloto);
+    }
+
+    private void validar(PilotoTemporada piloto) throws F1Exception {
+        if (piloto == null) {
+            throw new F1Exception("error.piloto_temporada.nulo");
+        }
+        if (piloto.getPiloto() == null) {
+            throw new F1Exception("error.piloto_temporada.piloto.nulo");
+        }
+        if (piloto.getEquipe() == null) {
+            throw new F1Exception("error.piloto_temporada.equipe.nulo");
+        }
     }
 
     /*
@@ -113,11 +140,12 @@ public class F1ServiceBean implements F1Service {
      * .f1.entity.PilotoTemporada)
      */
     @Override
-    public PilotoTemporada atualizarPilotoTemporada(PilotoTemporada piloto) throws F1Exception {
-        if (piloto == null || piloto.getId() == null) {
+    public PilotoTemporada atualizar(PilotoTemporada piloto) throws F1Exception {
+        validar(piloto);
+        if (piloto.getId() == null) {
             return null;
         }
-        return temporadaRepository.updatePiloto(piloto);
+        return temporadaRepository.update(piloto);
     }
 
     /*
@@ -152,8 +180,18 @@ public class F1ServiceBean implements F1Service {
      * .Temporada)
      */
     @Override
-    public Temporada salvarTemporada(Temporada temporada) throws F1Exception {
-        return temporadaRepository.persistTemporada(temporada);
+    public Temporada salvar(Temporada temporada) throws F1Exception {
+        validar(temporada);
+        return temporadaRepository.persist(temporada);
+    }
+
+    private void validar(Temporada temporada) throws F1Exception {
+        if (temporada == null) {
+            throw new F1Exception("error.temporada.nulo");
+        }
+        if (temporada.getAno() == null) {
+            throw new F1Exception("error.temporada.ano.nulo");
+        }
     }
 
     /*
@@ -164,11 +202,12 @@ public class F1ServiceBean implements F1Service {
      * .entity.Temporada)
      */
     @Override
-    public Temporada atualizarTemporada(Temporada temporada) throws F1Exception {
-        if (temporada == null || temporada.getId() == null) {
+    public Temporada atualizar(Temporada temporada) throws F1Exception {
+        validar(temporada);
+        if (temporada.getId() == null) {
             return null;
         }
-        return temporadaRepository.updateTemporada(temporada);
+        return temporadaRepository.update(temporada);
     }
 
     /*
@@ -202,12 +241,15 @@ public class F1ServiceBean implements F1Service {
      * )
      */
     @Override
-    public Temporada buscarTemporadaPorAno(Integer ano) {
+    public Temporada buscarTemporadaPor(Integer ano) throws F1Exception {
         Map<String, Object> params = new HashMap<String, Object>(1);
         params.put("ano", ano);
         List<Temporada> ts = temporadaRepository.findTemporada(params, 0, 2);
-        // TODO Implementar tratamento para quando resultado da consulta tiver
-        // mais de 1 valor, pois eh incorreto
+
+        if (ts.size() > 1) {
+            throw new F1Exception("erro.existe.mais.uma.temporada.com.mesmo.ano");
+        }
+
         return ts != null && ts.size() > 0 ? ts.get(0) : null;
     }
 
@@ -217,6 +259,48 @@ public class F1ServiceBean implements F1Service {
         }
         if (firstResult == null || firstResult < 0) {
             firstResult = 0;
+        }
+    }
+
+    /*
+     * (non-Javadoc)
+     * 
+     * @see
+     * br.com.ibsoft.f1.service.F1Service#deletarEquipeTemporada(java.lang.Long)
+     */
+    @Override
+    public void deletarEquipeTemporada(Long id) throws F1Exception {
+        EquipeTemporada equipe = buscarEquipeTemporada(id);
+        if (equipe != null) {
+            temporadaRepository.remove(equipe);
+        }
+    }
+
+    /*
+     * (non-Javadoc)
+     * 
+     * @see
+     * br.com.ibsoft.f1.service.F1Service#deletarPilotoTemporada(java.lang.Long)
+     */
+    @Override
+    public void deletarPilotoTemporada(Long id) throws F1Exception {
+        PilotoTemporada piloto = buscarPilotoTemporada(id);
+        if (piloto != null) {
+            temporadaRepository.remove(piloto);
+        }
+
+    }
+
+    /*
+     * (non-Javadoc)
+     * 
+     * @see br.com.ibsoft.f1.service.F1Service#deletarTemporada(java.lang.Long)
+     */
+    @Override
+    public void deletarTemporada(Long id) throws F1Exception {
+        Temporada temporada = buscarTemporada(id);
+        if (temporada != null) {
+            temporadaRepository.remove(temporada);
         }
     }
 

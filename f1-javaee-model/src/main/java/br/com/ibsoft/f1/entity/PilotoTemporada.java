@@ -13,7 +13,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
-import br.com.ibsoft.entity.Entidade;
+import br.com.ibsoft.entity.BaseEntity;
 
 /**
  * 
@@ -24,7 +24,7 @@ import br.com.ibsoft.entity.Entidade;
 @Entity
 @Table(schema = "f1", name = "piloto_temporada")
 @SequenceGenerator(schema = "f1", name = "piloto_temp_seq", sequenceName = "piloto_temp_seq")
-public class PilotoTemporada extends Entidade {
+public class PilotoTemporada extends BaseEntity {
 
     private static final long serialVersionUID = 1L;
 

@@ -11,12 +11,12 @@ public interface PilotoService extends Serializable {
     /**
      * @param Piloto
      */
-    Piloto salvarPiloto(Piloto Piloto) throws F1Exception;
+    Piloto salvarPiloto(Piloto piloto) throws F1Exception;
 
     /**
      * @param Piloto
      */
-    Piloto atualizarPiloto(Piloto Piloto) throws F1Exception;
+    Piloto atualizarPiloto(Piloto piloto) throws F1Exception;
 
     /**
      * @param id
@@ -30,4 +30,11 @@ public interface PilotoService extends Serializable {
      * @return
      */
     List<Piloto> listarPilotos(Integer firstResult, Integer maxResults);
+
+    /**
+     * 
+     * @param id
+     * @throws F1Exception
+     */
+    void deletarPiloto(Long id) throws F1Exception;
 }

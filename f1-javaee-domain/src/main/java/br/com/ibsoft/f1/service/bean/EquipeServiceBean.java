@@ -46,13 +46,17 @@ public class EquipeServiceBean implements EquipeService {
      */
     @Override
     public Equipe salvarEquipe(Equipe equipe) throws F1Exception {
+        validar(equipe);
+        return equipeRepository.persist(equipe);
+    }
+
+    private void validar(Equipe equipe) throws F1Exception {
         if (equipe == null) {
-            throw new F1Exception("equipe.nulo");
+            throw new F1Exception("error.equipe.nulo");
         }
         if (equipe.getNome() == null) {
-            throw new F1Exception("equipe.nome.nulo");
+            throw new F1Exception("error.equipe.nome.nulo");
         }
-        return equipeRepository.persist(equipe);
     }
 
     /*
@@ -64,7 +68,8 @@ public class EquipeServiceBean implements EquipeService {
      */
     @Override
     public Equipe atualizarEquipe(Equipe equipe) throws F1Exception {
-        if (equipe == null || equipe.getId() == null) {
+        validar(equipe);
+        if (equipe.getId() == null) {
             return null;
         }
         return equipeRepository.update(equipe);
@@ -106,7 +111,10 @@ public class EquipeServiceBean implements EquipeService {
     @Override
     public void deletarEquipe(Long id) throws F1Exception {
         Equipe equipe = buscarEquipe(id);
-        equipeRepository.remove(equipe);
+        if (equipe != null) {
+            equipeRepository.remove(equipe);
+        }
+
     }
 
 }

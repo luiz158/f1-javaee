@@ -14,7 +14,7 @@ import javax.persistence.OneToMany;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
-import br.com.ibsoft.entity.Entidade;
+import br.com.ibsoft.entity.BaseEntity;
 
 /**
  * 
@@ -25,7 +25,7 @@ import br.com.ibsoft.entity.Entidade;
 @Entity
 @Table(schema = "f1", name = "temporada")
 @SequenceGenerator(schema = "f1", name = "temporada_seq", sequenceName = "temporada_seq")
-public class Temporada extends Entidade {
+public class Temporada extends BaseEntity {
 
     private static final long serialVersionUID = 1L;
 

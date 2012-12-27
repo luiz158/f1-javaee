@@ -5,7 +5,7 @@
 package br.com.ibsoft.f1.repository;
 
 import br.com.ibsoft.f1.entity.Piloto;
-import br.com.ibsoft.repository.Repository;
+import br.com.ibsoft.repository.BaseRepository;
 
 /**
  * 
@@ -13,6 +13,6 @@ import br.com.ibsoft.repository.Repository;
  * 
  * @since v1.0.0
  */
-public interface PilotoRepository extends Repository<Piloto> {
+public interface PilotoRepository extends BaseRepository<Piloto> {
 
 }

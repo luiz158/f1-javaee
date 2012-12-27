@@ -10,7 +10,7 @@ import org.jboss.shrinkwrap.api.ShrinkWrap;
 import org.jboss.shrinkwrap.api.asset.EmptyAsset;
 import org.jboss.shrinkwrap.api.spec.WebArchive;
 
-import br.com.ibsoft.entity.Entidade;
+import br.com.ibsoft.entity.BaseEntity;
 import br.com.ibsoft.f1.entity.Equipe;
 
 /**
@@ -31,7 +31,7 @@ public class F1RestDeployment {
                              new File("target/test-lib/f1-javaee-ws-0.0.1-SNAPSHOT.jar"),
                              new File("target/test-lib/commons-io-2.0.1.jar"),
                              new File("target/test-lib/commons-lang3-3.0.1.jar"))
-                         .addPackages(true, Entidade.class.getPackage(), Equipe.class.getPackage(),
+                         .addPackages(true, BaseEntity.class.getPackage(), Equipe.class.getPackage(),
                              F1RestDeployment.class.getPackage())
                          .addAsResource("META-INF/test-persistence.xml", "META-INF/persistence.xml")
                          .addAsResource("import.sql").addAsWebInfResource("test-ds.xml").addAsWebInfResource("web.xml")

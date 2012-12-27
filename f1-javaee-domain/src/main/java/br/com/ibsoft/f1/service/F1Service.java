@@ -20,12 +20,19 @@ public interface F1Service extends Serializable {
     /**
      * @param EquipeTemporada
      */
-    EquipeTemporada salvarEquipeTemporada(EquipeTemporada EquipeTemporada) throws F1Exception;
+    EquipeTemporada salvar(EquipeTemporada EquipeTemporada) throws F1Exception;
 
     /**
      * @param EquipeTemporada
      */
-    EquipeTemporada atualizarEquipeTemporada(EquipeTemporada EquipeTemporada) throws F1Exception;
+    EquipeTemporada atualizar(EquipeTemporada EquipeTemporada) throws F1Exception;
+
+    /**
+     * 
+     * @param id
+     * @throws F1Exception
+     */
+    void deletarEquipeTemporada(Long id) throws F1Exception;
 
     /**
      * @param id
@@ -46,7 +53,7 @@ public interface F1Service extends Serializable {
      * @return
      * @throws F1Exception
      */
-    PilotoTemporada salvarPilotoTemporada(PilotoTemporada piloto) throws F1Exception;
+    PilotoTemporada salvar(PilotoTemporada piloto) throws F1Exception;
 
     /**
      * 
@@ -54,7 +61,14 @@ public interface F1Service extends Serializable {
      * @return
      * @throws F1Exception
      */
-    PilotoTemporada atualizarPilotoTemporada(PilotoTemporada piloto) throws F1Exception;
+    PilotoTemporada atualizar(PilotoTemporada piloto) throws F1Exception;
+
+    /**
+     * 
+     * @param id
+     * @throws F1Exception
+     */
+    void deletarPilotoTemporada(Long id) throws F1Exception;
 
     /**
      * 
@@ -77,7 +91,7 @@ public interface F1Service extends Serializable {
      * @return
      * @throws F1Exception
      */
-    Temporada salvarTemporada(Temporada temporada) throws F1Exception;
+    Temporada salvar(Temporada temporada) throws F1Exception;
 
     /**
      * 
@@ -85,7 +99,14 @@ public interface F1Service extends Serializable {
      * @return
      * @throws F1Exception
      */
-    Temporada atualizarTemporada(Temporada temporada) throws F1Exception;
+    Temporada atualizar(Temporada temporada) throws F1Exception;
+
+    /**
+     * 
+     * @param id
+     * @throws F1Exception
+     */
+    void deletarTemporada(Long id) throws F1Exception;
 
     /**
      * 
@@ -106,7 +127,8 @@ public interface F1Service extends Serializable {
      * 
      * @param ano
      * @return
+     * @throws F1Exception
      */
-    Temporada buscarTemporadaPorAno(Integer ano);
+    Temporada buscarTemporadaPor(Integer ano) throws F1Exception;
 
 }

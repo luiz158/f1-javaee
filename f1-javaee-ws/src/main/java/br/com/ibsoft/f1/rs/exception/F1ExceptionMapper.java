@@ -8,6 +8,8 @@ import javax.ws.rs.core.Response;
 import javax.ws.rs.ext.ExceptionMapper;
 import javax.ws.rs.ext.Provider;
 
+import br.com.ibsoft.f1.exception.F1Exception;
+
 /**
  * 
  * @author lourenco
@@ -15,7 +17,7 @@ import javax.ws.rs.ext.Provider;
  * @since v1.0.0
  */
 @Provider
-public class F1ExceptionRestMapper implements ExceptionMapper<F1ExceptionRest> {
+public class F1ExceptionMapper implements ExceptionMapper<F1Exception> {
 
     /*
      * (non-Javadoc)
@@ -23,7 +25,7 @@ public class F1ExceptionRestMapper implements ExceptionMapper<F1ExceptionRest> {
      * @see javax.ws.rs.ext.ExceptionMapper#toResponse(java.lang.Throwable)
      */
     @Override
-    public Response toResponse(F1ExceptionRest f1ExceptionRest) {
+    public Response toResponse(F1Exception f1ExceptionRest) {
         String msg = "";
         if (f1ExceptionRest != null) {
             msg = f1ExceptionRest.getMessage();

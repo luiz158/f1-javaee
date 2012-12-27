@@ -13,10 +13,10 @@ import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.QueryParam;
 
-import br.com.ibsoft.f1.entity.Equipe;
-import br.com.ibsoft.f1.entity.Piloto;
+import br.com.ibsoft.f1.entity.EquipeTemporada;
+import br.com.ibsoft.f1.entity.PilotoTemporada;
 import br.com.ibsoft.f1.entity.Temporada;
-import br.com.ibsoft.f1.rs.exception.F1ExceptionRest;
+import br.com.ibsoft.f1.exception.F1Exception;
 
 @Path("/f1/temporadas")
 @Consumes({ "application/json", "application/xml" })
@@ -24,65 +24,66 @@ import br.com.ibsoft.f1.rs.exception.F1ExceptionRest;
 public interface F1Resource extends Serializable {
 
     @GET
-    List<Temporada> listarTemporadas(@QueryParam("f") Integer first, @QueryParam("m") Integer max)
-            throws F1ExceptionRest;
+    List<Temporada> listarTemporadas(@QueryParam("f") Integer first, @QueryParam("m") Integer max) throws F1Exception;
 
     @Path("/{id}")
     @GET
-    Temporada buscarTemporadaPorId(@PathParam("id") Long id) throws F1ExceptionRest;
+    Temporada buscarTemporadaPorId(@PathParam("id") Long id) throws F1Exception;
 
     @Path("/ano/{ano}")
     @GET
-    Temporada buscarTemporadaPorAno(@PathParam("ano") Integer ano) throws F1ExceptionRest;
+    Temporada buscarTemporadaPorAno(@PathParam("ano") Integer ano) throws F1Exception;
 
     @POST
-    Temporada salvarTemporada(Temporada temporada) throws F1ExceptionRest;
+    Temporada salvar(Temporada temporada) throws F1Exception;
 
     @PUT
-    Temporada atualizarTemporada(Temporada temporada) throws F1ExceptionRest;
+    Temporada atualizar(Temporada temporada) throws F1Exception;
 
     @Path("/{id}")
     @DELETE
-    void deletarTemporada(@PathParam("id") Long id) throws F1ExceptionRest;
+    void deletarTemporada(@PathParam("id") Long id) throws F1Exception;
 
     @GET
     @Path("/equipes")
-    List<Equipe> listarEquipes(@QueryParam("f") Integer first, @QueryParam("m") Integer max) throws F1ExceptionRest;
+    List<EquipeTemporada> listarEquipes(@QueryParam("f") Integer first, @QueryParam("m") Integer max)
+            throws F1Exception;
 
     @Path("/equipes/{id}")
     @GET
-    Equipe buscarEquipePorId(@PathParam("id") Long id) throws F1ExceptionRest;
+    EquipeTemporada buscarEquipePorId(@PathParam("id") Long id) throws F1Exception;
 
     @POST
     @Path("/equipes")
-    Equipe salvarEquipe(Equipe equipe) throws F1ExceptionRest;
+    EquipeTemporada salvar(EquipeTemporada equipe) throws F1Exception;
 
     @PUT
     @Path("/equipes")
-    Equipe atualizarEquipe(Equipe equipe) throws F1ExceptionRest;
+    EquipeTemporada atualizar(EquipeTemporada equipe) throws F1Exception;
 
     @Path("/equipes/{id}")
     @DELETE
-    void deletarEquipe(@PathParam("id") Long id) throws F1ExceptionRest;
+    void deletarEquipe(@PathParam("id") Long id) throws F1Exception;
 
     @GET
     @Path("/pilotos")
-    List<Piloto> listarPilotos(@QueryParam("f") Integer first, @QueryParam("m") Integer max) throws F1ExceptionRest;
+    List<PilotoTemporada> listarPilotos(@QueryParam("f") Integer first, @QueryParam("m") Integer max)
+            throws F1Exception;
 
     @Path("/pilotos/{id}")
     @GET
-    Piloto buscarPilotoPorId(@PathParam("id") Long id) throws F1ExceptionRest;
+    PilotoTemporada buscarPilotoPorId(@PathParam("id") Long id) throws F1Exception;
 
     @POST
     @Path("/pilotos")
-    Piloto salvarPiloto(Piloto piloto) throws F1ExceptionRest;
+    PilotoTemporada salvar(PilotoTemporada piloto) throws F1Exception;
 
     @PUT
     @Path("/pilotos")
-    Equipe atualizarPiloto(Piloto piloto) throws F1ExceptionRest;
+    PilotoTemporada atualizar(PilotoTemporada piloto) throws F1Exception;
 
     @Path("/pilotos/{id}")
     @DELETE
-    void deletarPiloto(@PathParam("id") Long id) throws F1ExceptionRest;
+    void deletarPiloto(@PathParam("id") Long id) throws F1Exception;
 
 }

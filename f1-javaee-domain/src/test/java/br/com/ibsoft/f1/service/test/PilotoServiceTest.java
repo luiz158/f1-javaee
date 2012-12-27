@@ -13,6 +13,7 @@ import static org.mockito.Mockito.when;
 
 import java.io.Serializable;
 import java.util.Arrays;
+import java.util.Date;
 import java.util.List;
 
 import org.junit.Before;
@@ -49,42 +50,48 @@ public class PilotoServiceTest implements Serializable {
     @Test
     public void deveChamarPersistDePilotoRepository() throws F1Exception {
         // dado
-        Piloto Piloto = new Piloto();
-        Piloto.setNome("Force India");
+        Piloto piloto = new Piloto();
+        piloto.setDataNascimento(new Date());
+        piloto.setLicensa("012");
+        piloto.setNome("Force India");
 
         // quando
-        service.salvarPiloto(Piloto);
+        service.salvarPiloto(piloto);
 
         // verifique
-        verify(PilotoRepository).persist(Piloto);
+        verify(PilotoRepository).persist(piloto);
     }
 
     @Test
     public void deveChamarUpdateDePilotoRepository() throws F1Exception {
         // dado
-        Piloto Piloto = new Piloto();
-        Piloto.setId(12L);
-        Piloto.setNome("Force India");
+        Piloto piloto = new Piloto();
+        piloto.setId(12L);
+        piloto.setDataNascimento(new Date());
+        piloto.setLicensa("012");
+        piloto.setNome("Force India");
 
         // quando
-        service.atualizarPiloto(Piloto);
+        service.atualizarPiloto(piloto);
 
         // verifique
-        verify(PilotoRepository).update(Piloto);
+        verify(PilotoRepository).update(piloto);
     }
 
     @Test
     public void naoDeveChamarUpdateDePilotoRepositoryComIdNull() throws F1Exception {
         // dado
-        Piloto Piloto = new Piloto();
-        Piloto.setId(null);
-        Piloto.setNome("Force India");
+        Piloto piloto = new Piloto();
+        piloto.setId(null);
+        piloto.setDataNascimento(new Date());
+        piloto.setLicensa("012");
+        piloto.setNome("Force India");
 
         // quando
-        service.atualizarPiloto(Piloto);
+        service.atualizarPiloto(piloto);
 
         // verifique
-        verify(PilotoRepository, times(0)).update(Piloto);
+        verify(PilotoRepository, times(0)).update(piloto);
     }
 
     @Test
