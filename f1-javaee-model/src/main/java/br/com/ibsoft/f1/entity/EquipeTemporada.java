@@ -15,6 +15,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
+import javax.xml.bind.annotation.XmlRootElement;
 
 import br.com.ibsoft.entity.BaseEntity;
 
@@ -27,6 +28,7 @@ import br.com.ibsoft.entity.BaseEntity;
 @Entity
 @Table(schema = "f1", name = "equipe_temporada")
 @SequenceGenerator(schema = "f1", name = "equipe_temp_seq", sequenceName = "equipe_temp_seq")
+@XmlRootElement
 public class EquipeTemporada extends BaseEntity {
 
     private static final long serialVersionUID = 1L;

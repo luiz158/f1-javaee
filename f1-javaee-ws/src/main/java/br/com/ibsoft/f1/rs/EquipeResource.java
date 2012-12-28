@@ -17,8 +17,8 @@ import br.com.ibsoft.f1.entity.Equipe;
 import br.com.ibsoft.f1.exception.F1Exception;
 
 @Path("/equipes")
-@Consumes({ "application/json", "application/xml" })
-@Produces({ "application/json", "application/xml" })
+@Consumes({ "application/json" })
+@Produces({ "application/json" })
 public interface EquipeResource extends Serializable {
 
     @GET

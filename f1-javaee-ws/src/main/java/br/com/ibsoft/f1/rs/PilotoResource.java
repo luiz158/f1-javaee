@@ -18,8 +18,8 @@ import br.com.ibsoft.f1.entity.Piloto;
 import br.com.ibsoft.f1.exception.F1Exception;
 
 @Path("/pilotos")
-@Consumes({ "application/json", "application/xml" })
-@Produces({ "application/json", "application/xml" })
+@Consumes({ "application/json" })
+@Produces({ "application/json" })
 public interface PilotoResource extends Serializable {
 
     @GET

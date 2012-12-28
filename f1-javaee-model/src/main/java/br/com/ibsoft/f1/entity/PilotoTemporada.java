@@ -12,6 +12,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
+import javax.xml.bind.annotation.XmlRootElement;
 
 import br.com.ibsoft.entity.BaseEntity;
 
@@ -24,6 +25,7 @@ import br.com.ibsoft.entity.BaseEntity;
 @Entity
 @Table(schema = "f1", name = "piloto_temporada")
 @SequenceGenerator(schema = "f1", name = "piloto_temp_seq", sequenceName = "piloto_temp_seq")
+@XmlRootElement
 public class PilotoTemporada extends BaseEntity {
 
     private static final long serialVersionUID = 1L;

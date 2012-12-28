@@ -15,6 +15,7 @@ import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import javax.xml.bind.annotation.XmlRootElement;
 
 import br.com.ibsoft.entity.BaseEntity;
 
@@ -27,6 +28,7 @@ import br.com.ibsoft.entity.BaseEntity;
 @Entity
 @Table(schema = "f1", name = "piloto")
 @SequenceGenerator(schema = "f1", name = "piloto_seq", sequenceName = "piloto_seq")
+@XmlRootElement
 public class Piloto extends BaseEntity {
 
     private static final long serialVersionUID = 1L;

@@ -19,8 +19,8 @@ import br.com.ibsoft.f1.entity.Temporada;
 import br.com.ibsoft.f1.exception.F1Exception;
 
 @Path("/f1/temporadas")
-@Consumes({ "application/json", "application/xml" })
-@Produces({ "application/json", "application/xml" })
+@Consumes({ "application/json" })
+@Produces({ "application/json" })
 public interface F1Resource extends Serializable {
 
     @GET
